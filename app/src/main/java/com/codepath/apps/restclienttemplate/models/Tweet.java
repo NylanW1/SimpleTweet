@@ -11,7 +11,7 @@ import java.util.List;
 public class Tweet {
 
 
-    public static String body;
+    public String body;
     public String createdAt;
     public long id;
     public User user;
@@ -21,7 +21,7 @@ public class Tweet {
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
-        Tweet.body = jsonObject.getString("text");
+        tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
