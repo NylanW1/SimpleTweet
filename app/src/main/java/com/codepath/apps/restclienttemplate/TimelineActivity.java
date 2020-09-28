@@ -1,6 +1,8 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -120,6 +122,10 @@ public class TimelineActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.compose);    // Links the item from the menu as item
+        Drawable icon = getResources().getDrawable(R.drawable.ic_newmessage);// Saves the drawable as the item, so the vector will now be displayed
+        icon.setColorFilter(getResources().getColor(R.color.twitter_blue), PorterDuff.Mode.SRC_IN);   // Colors the vector
+        item.setIcon(icon);
         return true;
     }
 
